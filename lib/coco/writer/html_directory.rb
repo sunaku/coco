@@ -4,12 +4,13 @@ module Coco
 
   # I prepare the coverage/ directory for html files.
   class HtmlDirectory
+    COVERAGE_DIR = 'coverage'.freeze
     attr_reader :coverage_dir
     
     def initialize
-      @coverage_dir = 'coverage'
-      @css_dir = 'coverage/css'
-      @img_dir = 'coverage/img'
+      @coverage_dir = COVERAGE_DIR
+      @css_dir = @coverage_dir + '/css'
+      @img_dir = @coverage_dir + '/img'
       css = File.join($COCO_PATH, 'template/css')
       @css_files = Dir.glob(css + '/*')
       img = File.join($COCO_PATH, 'template/img')
